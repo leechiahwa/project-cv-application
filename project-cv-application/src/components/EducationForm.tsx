@@ -1,7 +1,7 @@
 function EducationForm() {
   return (
     <>
-      <label>
+      <label className="d-flex flex-column p-2">
         School Name: <input type="text" />
         Course Name: <input type="text" />
         Date of Study: <input type="date" /> To <input type="date" />

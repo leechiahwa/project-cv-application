@@ -1,7 +1,7 @@
 function WorkForm() {
   return (
     <>
-      <label>
+      <label className="d-flex flex-column p-2">
         Company Name: <input type="text" />
         Position Title: <input type="text" />
         Main Responsibility: <input type="text" />
