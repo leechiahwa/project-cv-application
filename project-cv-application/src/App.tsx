@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import InfoForm from "./components/InfoForm";
+import CvPreview from "./components/CvPreview";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
           <InfoForm />
         </div>
         <div>
-          Test
+          <CvPreview />
         </div>
       </div>
     </>

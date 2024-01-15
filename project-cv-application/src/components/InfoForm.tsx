@@ -19,11 +19,11 @@ function InfoForm() {
     positionTitle: "",
     mainResponsibility: "",
     workDurationFrom: "",
-    workDurationTo: ""
+    workDurationTo: "",
   });
 
-  const handleChange = (e) => {
-    setPerson({ ...person, name: e.target.value });
+  const handleChange = (event) => {
+    console.log(event.target.value);
   };
 
   return (
@@ -43,18 +43,49 @@ function InfoForm() {
       </button>
       <br></br>
       <label className="d-flex flex-column p-2">
-        School Name: <input type="text" value={person.schoolName} onChange={handleChange}/>
-        Course Name: <input type="text" value={person.courseName} onChange={handleChange}/>
-        Date of Study: <input type="date" value={person.studyDateFrom} onChange={handleChange}/> To <input type="date" value={person.studyDateTo} onChange={handleChange}/>
+        School Name:{" "}
+        <input type="text" value={person.schoolName} onChange={handleChange} />
+        Course Name:{" "}
+        <input type="text" value={person.courseName} onChange={handleChange} />
+        Date of Study:{" "}
+        <input
+          type="date"
+          value={person.studyDateFrom}
+          onChange={handleChange}
+        />{" "}
+        To{" "}
+        <input type="date" value={person.studyDateTo} onChange={handleChange} />
       </label>
       <button className="btn btn-secondary">Edit</button>
       <button className="btn btn-primary">Submit</button>
       <br></br>
       <label className="d-flex flex-column p-2">
-        Company Name: <input type="text" value={person.companyName} onChange={handleChange}/>
-        Position Title: <input type="text" value={person.positionTitle} onChange={handleChange}/>
-        Main Responsibility: <input type="text" value={person.mainResponsibility} onChange={handleChange}/>
-        Work Duration: <input type="date" value={person.workDurationFrom} onChange={handleChange}/> to <input type="date" value={person.workDurationTo} onChange={handleChange}/>
+        Company Name:{" "}
+        <input type="text" value={person.companyName} onChange={handleChange} />
+        Position Title:{" "}
+        <input
+          type="text"
+          value={person.positionTitle}
+          onChange={handleChange}
+        />
+        Main Responsibility:{" "}
+        <input
+          type="text"
+          value={person.mainResponsibility}
+          onChange={handleChange}
+        />
+        Work Duration:{" "}
+        <input
+          type="date"
+          value={person.workDurationFrom}
+          onChange={handleChange}
+        />{" "}
+        to{" "}
+        <input
+          type="date"
+          value={person.workDurationTo}
+          onChange={handleChange}
+        />
       </label>
       <button className="btn btn-secondary">Edit</button>
       <button className="btn btn-primary">Submit</button>
