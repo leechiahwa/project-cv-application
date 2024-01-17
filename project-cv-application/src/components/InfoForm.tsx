@@ -22,8 +22,8 @@ function InfoForm() {
     workDurationTo: "",
   });
 
-  const handleChange = (event) => {
-    console.log(event.target.value);
+  const handleChange = (e) => {
+    setPerson(e.target.value)
   };
 
   return (
