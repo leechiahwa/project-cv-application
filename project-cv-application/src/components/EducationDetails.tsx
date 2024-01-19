@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { submitButton, editButton } from "./buttons";
+
 
 export default function EducationDetails() {
 const [person, setPerson] = useState({
@@ -8,18 +10,47 @@ const [person, setPerson] = useState({
     studyDateTo: "",
 })
 
+function handleSchoolNameChange(e) {
+  setPerson({
+    ...person,
+    schoolName: e.target.value
+  })
+}
+
+function handleCourseNameChange(e) {
+  setPerson({
+    ...person,
+    courseName: e.target.value
+  })
+}
+
+function handleStudyDateFromChange(e) {
+  setPerson({
+    ...person,
+    studyDateFrom: e.target.value
+  })
+}
+
+function handleStudyDateToChange(e) {
+  setPerson({
+    ...person,
+    studyDateTo: e.target.value
+  })
+}
+
   return (
     <div>
       <label className="d-flex flex-column p-2">
-        School Name: <input type="text" value={person.schoolName} />
-        Course Name: <input type="text" value={person.courseName} />
+        School Name: <input type="text" value={person.schoolName} onChange={handleSchoolNameChange}/>
+        Course Name: <input type="text" value={person.courseName} onChange={handleCourseNameChange}/>
         Date of Study: <input
           type="date"
           value={person.studyDateFrom}
-        /> To <input type="date" value={person.studyDateTo} />
+          onChange={handleStudyDateFromChange}
+        /> To <input type="date" value={person.studyDateTo} onChange={handleStudyDateToChange}/>
       </label>
-      <button className="btn btn-secondary">Edit</button>
-      <button className="btn btn-primary">Submit</button>
+      <button className="btn btn-secondary" onClick={editButton}>Edit</button>
+      <button className="btn btn-primary" onClick={submitButton}>Submit</button>
     </div>
   );
 }

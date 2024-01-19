@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { submitButton, editButton } from "./buttons";
 
 function InfoForm() {
   const [person, setPerson] = useState({
@@ -46,8 +47,8 @@ function InfoForm() {
           Age: <input type="number" value={person.age} onChange={handleAgeChange}/>
           Phone: <input type="tel" value={person.phone} onChange={handlePhoneChange}/>
         </label>
-        <button className="btn btn-secondary">Edit</button>
-        <button className="btn btn-primary">Submit</button>
+        <button className="btn btn-secondary" onClick={editButton}>Edit</button>
+        <button className="btn btn-primary" onClick={submitButton}>Submit</button>
       </div>
       <div>
         <p>{person.name}</p>

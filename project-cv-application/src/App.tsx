@@ -7,9 +7,11 @@ function App() {
   return (
     <>
       <div className="d-flex">
-        <InfoForm />
-        <EducationDetails />
-        <WorkDetails />
+        <div className="container">
+          <InfoForm />
+          <EducationDetails />
+          <WorkDetails />
+        </div>
       </div>
     </>
   );
