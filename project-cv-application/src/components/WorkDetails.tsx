@@ -48,7 +48,8 @@ export default function WorkDetails() {
 
   return (
     <div>
-      <label className="d-flex flex-column p-2">
+      <h2>Work Info</h2>
+      <form className="d-flex flex-column p-2">
         Company Name: <input type="text" value={person.companyName} onChange={handleCompanyNameChange}/>
         Position Title: <input type="text" value={person.positionTitle} onChange={handlePositionTitleChange}/>
         Main Responsibility:{" "}
@@ -58,7 +59,7 @@ export default function WorkDetails() {
           value={person.workDurationFrom}
           onChange={handleWorkDurationFromChange}
         /> to <input type="date" value={person.workDurationTo} onChange={handleWorkDurationToChange}/>
-      </label>
+      </form>
       <button className="btn btn-secondary" onClick={editButton}>Edit</button>
       <button className="btn btn-primary" onClick={submitButton}>Submit</button>
     </div>

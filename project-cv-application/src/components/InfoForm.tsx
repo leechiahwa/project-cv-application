@@ -39,22 +39,17 @@ function InfoForm() {
 
   return (
     <>
-      <div className="">
-        <label className="d-flex flex-column p-2">
+      <div>
+        <h2>Personal Info</h2>
+        <form className="d-flex flex-column p-2">
           Name:{" "}
           <input type="text" value={person.name} onChange={handleNameChange} />
           Email: <input type="email" value={person.email} onChange={handleEmailChange}/>
           Age: <input type="number" value={person.age} onChange={handleAgeChange}/>
           Phone: <input type="tel" value={person.phone} onChange={handlePhoneChange}/>
-        </label>
+        </form>
         <button className="btn btn-secondary" onClick={editButton}>Edit</button>
         <button className="btn btn-primary" onClick={submitButton}>Submit</button>
-      </div>
-      <div>
-        <p>{person.name}</p>
-        <p>{person.email}</p>
-        <p>{person.age}</p>
-        <p>{person.phone}</p>
       </div>
     </>
   );

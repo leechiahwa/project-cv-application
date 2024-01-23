@@ -40,7 +40,8 @@ function handleStudyDateToChange(e) {
 
   return (
     <div>
-      <label className="d-flex flex-column p-2">
+      <h2>Education Form</h2>
+      <form className="d-flex flex-column p-2">
         School Name: <input type="text" value={person.schoolName} onChange={handleSchoolNameChange}/>
         Course Name: <input type="text" value={person.courseName} onChange={handleCourseNameChange}/>
         Date of Study: <input
@@ -48,7 +49,7 @@ function handleStudyDateToChange(e) {
           value={person.studyDateFrom}
           onChange={handleStudyDateFromChange}
         /> To <input type="date" value={person.studyDateTo} onChange={handleStudyDateToChange}/>
-      </label>
+      </form>
       <button className="btn btn-secondary" onClick={editButton}>Edit</button>
       <button className="btn btn-primary" onClick={submitButton}>Submit</button>
     </div>
