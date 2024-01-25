@@ -1,13 +1,8 @@
-import { useState } from "react";
 import { submitButton, editButton } from "./buttons";
+import { useInfoForm } from "./InfoFormContext";
 
-function InfoForm() {
-  const [person, setPerson] = useState({
-    name: "",
-    email: "",
-    age: "",
-    phone: "",
-  });
+export default function InfoForm() {
+  const { person, setPerson } = useInfoForm();
 
   function handleNameChange(e) {
     setPerson({
@@ -53,6 +48,4 @@ function InfoForm() {
       </div>
     </>
   );
-}
-
-export default InfoForm;
+};
