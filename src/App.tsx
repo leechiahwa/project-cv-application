@@ -4,8 +4,8 @@ import InfoForm from "./components/InfoForm";
 function App() {
   return (
     <>
-      <div className="d-flex">
-        <div className="container">
+      <div>
+        <div>
           <InfoForm />
         </div>
         {/*<CvPreview />*/}

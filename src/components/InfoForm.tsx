@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { submitButton, editButton } from "./buttons";
-// import { useInfoForm } from "./InfoFormContext";
 
 export default function InfoForm() {
   const [person, setPerson] = useState({
@@ -110,7 +109,7 @@ export default function InfoForm() {
   }
 
   return (
-    <>
+    <div className="d-flex">
       <div>
         <h2>Personal Info</h2>
         <form className="d-flex flex-column p-2">
@@ -210,6 +209,12 @@ export default function InfoForm() {
           Submit
         </button>
       </div>
-    </>
+      <div className="d-flex">
+        <p>{person.name}</p>
+        <p>{person.email}</p>
+        <p>{person.age}</p>
+        <p>{person.phone}</p>
+      </div>
+    </div>
   );
 }
