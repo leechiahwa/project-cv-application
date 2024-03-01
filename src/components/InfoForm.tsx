@@ -109,9 +109,9 @@ export default function InfoForm() {
   }
 
   return (
-    <div className="d-flex">
+    <div className="d-flex" id="form">
       <div>
-        <h2>Personal Info</h2>
+        <h2 className="header">Personal Info</h2>
         <form className="d-flex flex-column p-2">
           Name:{" "}
           <input type="text" value={person.name} onChange={handleNameChange} />
@@ -134,7 +134,7 @@ export default function InfoForm() {
         </button>
       </div>
       <div>
-        <h2>Education Form</h2>
+        <h2 className="header">Education Form</h2>
         <form className="d-flex flex-column p-2">
           School Name:{" "}
           <input
@@ -169,7 +169,7 @@ export default function InfoForm() {
         </button>
       </div>
       <div>
-        <h2>Work Info</h2>
+        <h2 className="header">Work Info</h2>
         <form className="d-flex flex-column p-2">
           Company Name:{" "}
           <input
@@ -209,11 +209,22 @@ export default function InfoForm() {
           Submit
         </button>
       </div>
-      <div className="d-flex">
-        <p>{person.name}</p>
-        <p>{person.email}</p>
-        <p>{person.age}</p>
-        <p>{person.phone}</p>
+      <div className="preview">
+        <h3 className="header">Resume</h3>
+        <p className="preview name">Hello, I am {person.name}!</p>
+        <p className="preview">{person.email}</p>
+        <p className="preview">I am {person.age} years old.</p>
+        <p className="preview">{person.phone}</p>
+        <p className="preview">
+          I am currently studying {person.courseName} at {person.schoolName}. I
+          started studying on {person.studyDateFrom} and is expected to graduate
+          on {person.studyDateTo}.{/* need to format date */}
+        </p>
+        <p>
+          I currently work at {person.companyName} as a {person.positionTitle}.
+          My main responsibility is to {person.mainResponsibility}. I've worked
+          here from {person.workDurationFrom} to {person.workDurationTo}.
+        </p>
       </div>
     </div>
   );

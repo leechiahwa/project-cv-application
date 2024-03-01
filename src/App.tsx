@@ -4,7 +4,7 @@ import InfoForm from "./components/InfoForm";
 function App() {
   return (
     <>
-      <div>
+      <div className="main">
         <div>
           <InfoForm />
         </div>

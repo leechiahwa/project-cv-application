@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body { height: 100%; }
+
+body {
+    background-color: #FFF;
+    font-size: 130%;
+    font-family: calluna, Calluna, Georgia;
+    font-weight: 300;
+    line-height: 1.55em;
+    padding: 0 2em;
+    text-rendering: optimizeLegibility;
+    color: #555;
+}
+
+h2.header {
+    padding: 0 2em;
+}
+
+div.preview {
+    padding: 0 2em;
+}
+
+p.preview {
+    text-align: center;
+}
+
+.preview .header {
+    text-align: center;
+
+}
+
+.preview .name {
+    text-align: center;
+    font-size: larger;
+
+}
+
+.preview .email {
+    text-align: center;
+}
