@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { submitButton, editButton } from "./buttons";
+import moment from "moment";
 
 export default function InfoForm() {
   const [person, setPerson] = useState({
@@ -45,13 +46,15 @@ export default function InfoForm() {
         <p className="preview">{person.phone}</p>
         <p className="preview">
           I am currently studying {person.courseName} at {person.schoolName}. I
-          started studying on {person.studyDateFrom} and is expected to graduate
-          on {person.studyDateTo}. {/* need to format date */}
+          started studying on{" "}
+          {moment(person.studyDateFrom).format("DD/MM/YYYY")} and is expected to
+          graduate on {moment(person.studyDateTo).format("DD/MM/YYYY")}.
         </p>
         <p>
           I currently work at {person.companyName} as a {person.positionTitle}.
           My main responsibility is to {person.mainResponsibility}. I've worked
-          here from {person.workDurationFrom} to {person.workDurationTo}.
+          here from {moment(person.workDurationFrom).format("DD/MM/YYYY")} to{" "}
+          {moment(person.workDurationTo).format("DD/MM/YYYY")}.
         </p>
       </>
     );
