@@ -18,113 +18,49 @@ export default function InfoForm() {
     workDurationTo: "",
   });
 
-  function handleNameChange(e) {
+  // Handle change for input fields
+  function handleChange(e) {
+    const { name, value } = e.target;
     setPerson({
       ...person,
-      name: e.target.value,
+      [name]: value,
     });
   }
 
-  function handleEmailChange(e) {
-    setPerson({
-      ...person,
-      email: e.target.value,
-    });
-  }
-
-  function handleAgeChange(e) {
-    setPerson({
-      ...person,
-      age: e.target.value,
-    });
-  }
-
-  function handlePhoneChange(e) {
-    setPerson({
-      ...person,
-      phone: e.target.value,
-    });
-  }
-  function handleSchoolNameChange(e) {
-    setPerson({
-      ...person,
-      schoolName: e.target.value,
-    });
-  }
-
-  function handleCourseNameChange(e) {
-    setPerson({
-      ...person,
-      courseName: e.target.value,
-    });
-  }
-
-  function handleStudyDateFromChange(e) {
-    setPerson({
-      ...person,
-      studyDateFrom: e.target.value,
-    });
-  }
-
-  function handleStudyDateToChange(e) {
-    setPerson({
-      ...person,
-      studyDateTo: e.target.value,
-    });
-  }
-
-  function handleCompanyNameChange(e) {
-    setPerson({
-      ...person,
-      companyName: e.target.value,
-    });
-  }
-
-  function handlePositionTitleChange(e) {
-    setPerson({
-      ...person,
-      positionTitle: e.target.value,
-    });
-  }
-
-  function handleMainResponsibilityChange(e) {
-    setPerson({
-      ...person,
-      mainResponsibility: e.target.value,
-    });
-  }
-
-  function handleWorkDurationFromChange(e) {
-    setPerson({
-      ...person,
-      workDurationFrom: e.target.value,
-    });
-  }
-
-  function handleWorkDurationToChange(e) {
-    setPerson({
-      ...person,
-      workDurationTo: e.target.value,
-    });
-  }
-
+  // TODO: Design the preview to look better
   return (
     <div className="d-flex" id="form">
       <div>
         <h2 className="header">Personal Info</h2>
         <form className="d-flex flex-column p-2">
           Name:{" "}
-          <input type="text" value={person.name} onChange={handleNameChange} />
+          <input
+            type="text"
+            value={person.name}
+            name="name"
+            onChange={handleChange}
+          />
           Email:{" "}
           <input
             type="email"
             value={person.email}
-            onChange={handleEmailChange}
+            name="email"
+            onChange={handleChange}
           />
           Age:{" "}
-          <input type="number" value={person.age} onChange={handleAgeChange} />
+          <input
+            type="number"
+            value={person.age}
+            name="age"
+            onChange={handleChange}
+          />
           Phone:{" "}
-          <input type="tel" value={person.phone} onChange={handlePhoneChange} />
+          <input
+            type="tel"
+            value={person.phone}
+            name="phone"
+            onChange={handleChange}
+          />
         </form>
         <button className="btn btn-secondary" onClick={editButton}>
           Edit
@@ -140,25 +76,29 @@ export default function InfoForm() {
           <input
             type="text"
             value={person.schoolName}
-            onChange={handleSchoolNameChange}
+            name="schoolName"
+            onChange={handleChange}
           />
           Course Name:{" "}
           <input
             type="text"
             value={person.courseName}
-            onChange={handleCourseNameChange}
+            name="courseName"
+            onChange={handleChange}
           />
           Date of Study:{" "}
           <input
             type="date"
             value={person.studyDateFrom}
-            onChange={handleStudyDateFromChange}
+            name="studyDateFrom"
+            onChange={handleChange}
           />{" "}
           To{" "}
           <input
             type="date"
             value={person.studyDateTo}
-            onChange={handleStudyDateToChange}
+            name="studyDateTo"
+            onChange={handleChange}
           />
         </form>
         <button className="btn btn-secondary" onClick={editButton}>
@@ -175,31 +115,36 @@ export default function InfoForm() {
           <input
             type="text"
             value={person.companyName}
-            onChange={handleCompanyNameChange}
+            name="companyName"
+            onChange={handleChange}
           />
           Position Title:{" "}
           <input
             type="text"
             value={person.positionTitle}
-            onChange={handlePositionTitleChange}
+            name="positionTitle"
+            onChange={handleChange}
           />
           Main Responsibility:{" "}
           <input
             type="text"
             value={person.mainResponsibility}
-            onChange={handleMainResponsibilityChange}
+            name="mainResponsibility"
+            onChange={handleChange}
           />
           Work Duration:{" "}
           <input
             type="date"
             value={person.workDurationFrom}
-            onChange={handleWorkDurationFromChange}
+            name="workDurationFrom"
+            onChange={handleChange}
           />{" "}
           to{" "}
           <input
             type="date"
             value={person.workDurationTo}
-            onChange={handleWorkDurationToChange}
+            name="workDurationTo"
+            onChange={handleChange}
           />
         </form>
         <button className="btn btn-secondary" onClick={editButton}>
@@ -218,7 +163,7 @@ export default function InfoForm() {
         <p className="preview">
           I am currently studying {person.courseName} at {person.schoolName}. I
           started studying on {person.studyDateFrom} and is expected to graduate
-          on {person.studyDateTo}.{/* need to format date */}
+          on {person.studyDateTo}. {/* need to format date */}
         </p>
         <p>
           I currently work at {person.companyName} as a {person.positionTitle}.

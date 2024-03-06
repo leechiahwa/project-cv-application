@@ -8,7 +8,6 @@ function App() {
         <div>
           <InfoForm />
         </div>
-        {/*<CvPreview />*/}
       </div>
     </>
   );
