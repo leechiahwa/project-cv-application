@@ -27,7 +27,40 @@ export default function InfoForm() {
     });
   }
 
+  const [showPreview, setShowPreview] = useState(false);
+
+  // TODO: should be a better way to do this part
+  function onSubmit() {
+    setShowPreview(true);
+  }
+
+  let previewOnSubmit = <h3>Resume in progress...</h3>;
+
+  if (showPreview) {
+    previewOnSubmit = (
+      <>
+        <p className="preview name">Hello, I am {person.name}!</p>
+        <p className="preview">{person.email}</p>
+        <p className="preview">I am {person.age} years old.</p>
+        <p className="preview">{person.phone}</p>
+        <p className="preview">
+          I am currently studying {person.courseName} at {person.schoolName}. I
+          started studying on {person.studyDateFrom} and is expected to graduate
+          on {person.studyDateTo}. {/* need to format date */}
+        </p>
+        <p>
+          I currently work at {person.companyName} as a {person.positionTitle}.
+          My main responsibility is to {person.mainResponsibility}. I've worked
+          here from {person.workDurationFrom} to {person.workDurationTo}.
+        </p>
+      </>
+    );
+  }
+
   // TODO: Design the preview to look better
+  // TODO: Only show the preview when submit button is clicked
+  // TODO: Only enable the submit button when all fields are filled
+
   return (
     <div className="d-flex" id="form">
       <div>
@@ -101,10 +134,16 @@ export default function InfoForm() {
             onChange={handleChange}
           />
         </form>
-        <button className="btn btn-secondary" onClick={editButton}>
+        {/* Hides preview when edit button is clicked */}
+        <button
+          className="btn btn-secondary"
+          onClick={() => setShowPreview(false)}
+        >
           Edit
         </button>
-        <button className="btn btn-primary" onClick={submitButton}>
+        {/* Shows preview when submit button is clicked */}
+        <button className="btn btn-primary" onClick={onSubmit}>
+          {" "}
           Submit
         </button>
       </div>
@@ -154,23 +193,7 @@ export default function InfoForm() {
           Submit
         </button>
       </div>
-      <div className="preview">
-        <h3 className="header">Resume</h3>
-        <p className="preview name">Hello, I am {person.name}!</p>
-        <p className="preview">{person.email}</p>
-        <p className="preview">I am {person.age} years old.</p>
-        <p className="preview">{person.phone}</p>
-        <p className="preview">
-          I am currently studying {person.courseName} at {person.schoolName}. I
-          started studying on {person.studyDateFrom} and is expected to graduate
-          on {person.studyDateTo}. {/* need to format date */}
-        </p>
-        <p>
-          I currently work at {person.companyName} as a {person.positionTitle}.
-          My main responsibility is to {person.mainResponsibility}. I've worked
-          here from {person.workDurationFrom} to {person.workDurationTo}.
-        </p>
-      </div>
+      {previewOnSubmit}
     </div>
   );
 }
