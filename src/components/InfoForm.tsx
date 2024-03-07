@@ -20,7 +20,7 @@ export default function InfoForm() {
   });
 
   // Handle change for input fields
-  function handleChange(e) {
+  function handleChange(e: { target: { name: any; value: any; }; }) {
     const { name, value } = e.target;
     setPerson({
       ...person,
