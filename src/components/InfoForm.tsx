@@ -20,7 +20,7 @@ export default function InfoForm() {
   });
 
   // Handle change for input fields
-  function handleChange(e: { target: { name: any; value: any; }; }) {
+  function handleChange(e: { target: { name: any; value: any } }) {
     const { name, value } = e.target;
     setPerson({
       ...person,
@@ -35,11 +35,12 @@ export default function InfoForm() {
     setShowPreview(true);
   }
 
-  let previewOnSubmit = <h3>Resume in progress...</h3>;
+  let previewOnSubmit = <h3 className="card">Resume in progress...</h3>;
 
+  // Show the preview when submit button is clicked
   if (showPreview) {
     previewOnSubmit = (
-      <>
+      <div className="d-flex flex-column card">
         <p className="preview name">Hello, I am {person.name}!</p>
         <p className="preview">{person.email}</p>
         <p className="preview">I am {person.age} years old.</p>
@@ -56,19 +57,18 @@ export default function InfoForm() {
           here from {moment(person.workDurationFrom).format("DD/MM/YYYY")} to{" "}
           {moment(person.workDurationTo).format("DD/MM/YYYY")}.
         </p>
-      </>
+      </div>
     );
   }
 
   // TODO: Design the preview to look better
-  // TODO: Only show the preview when submit button is clicked
   // TODO: Only enable the submit button when all fields are filled
 
   return (
     <div className="d-flex" id="form">
-      <div>
+      <div className="card">
         <h2 className="header">Personal Info</h2>
-        <form className="d-flex flex-column p-2">
+        <form className="d-flex flex-column">
           Name:{" "}
           <input
             type="text"
@@ -98,16 +98,19 @@ export default function InfoForm() {
             onChange={handleChange}
           />
         </form>
-        <button className="btn btn-secondary" onClick={editButton}>
+        <button
+          className="btn btn-secondary"
+          onClick={() => setShowPreview(false)}
+        >
           Edit
         </button>
-        <button className="btn btn-primary" onClick={submitButton}>
+        <button className="btn btn-primary" onClick={onSubmit}>
           Submit
         </button>
       </div>
-      <div>
+      <div className="card">
         <h2 className="header">Education Form</h2>
-        <form className="d-flex flex-column p-2">
+        <form className="d-flex flex-column">
           School Name:{" "}
           <input
             type="text"
@@ -150,9 +153,9 @@ export default function InfoForm() {
           Submit
         </button>
       </div>
-      <div>
+      <div className="card">
         <h2 className="header">Work Info</h2>
-        <form className="d-flex flex-column p-2">
+        <form className="d-flex flex-column">
           Company Name:{" "}
           <input
             type="text"
@@ -189,10 +192,13 @@ export default function InfoForm() {
             onChange={handleChange}
           />
         </form>
-        <button className="btn btn-secondary" onClick={editButton}>
+        <button
+          className="btn btn-secondary"
+          onClick={() => setShowPreview(false)}
+        >
           Edit
         </button>
-        <button className="btn btn-primary" onClick={submitButton}>
+        <button className="btn btn-primary" onClick={onSubmit}>
           Submit
         </button>
       </div>

@@ -28,6 +28,16 @@ p.preview {
     text-align: center;
 }
 
+h3.card {
+    text-align: center;
+}
+
+div.card {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 2em;
+}
+
 .preview .header {
     text-align: center;
 
