@@ -35,7 +35,11 @@ export default function InfoForm() {
     setShowPreview(true);
   }
 
-  let previewOnSubmit = <h3 id="preview" className="card">Resume in progress...</h3>;
+  let previewOnSubmit = (
+    <h3 id="preview" className="card">
+      Resume in progress...
+    </h3>
+  );
 
   // Show the preview when submit button is clicked
   if (showPreview) {
@@ -63,6 +67,7 @@ export default function InfoForm() {
 
   // TODO: Design the preview to look better
   // TODO: Only enable the submit button when all fields are filled
+  // TODO: Toggle to show/hide the form
 
   return (
     <div className="d-flex">
@@ -70,12 +75,13 @@ export default function InfoForm() {
         <div className="card">
           <h2 className="header">Personal Info</h2>
           <form className="d-flex flex-column">
-            Name:{" "}
+            Name:{""}
             <input
               type="text"
               value={person.name}
               name="name"
               onChange={handleChange}
+              className="form-control"
             />
             Email:{" "}
             <input
@@ -83,6 +89,7 @@ export default function InfoForm() {
               value={person.email}
               name="email"
               onChange={handleChange}
+              className="form-control"
             />
             Age:{" "}
             <input
@@ -90,6 +97,7 @@ export default function InfoForm() {
               value={person.age}
               name="age"
               onChange={handleChange}
+              className="form-control"
             />
             Phone:{" "}
             <input
@@ -97,6 +105,7 @@ export default function InfoForm() {
               value={person.phone}
               name="phone"
               onChange={handleChange}
+              className="form-control"
             />
           </form>
           <button
@@ -118,6 +127,7 @@ export default function InfoForm() {
               value={person.schoolName}
               name="schoolName"
               onChange={handleChange}
+              className="form-control"
             />
             Course Name:{" "}
             <input
@@ -125,6 +135,7 @@ export default function InfoForm() {
               value={person.courseName}
               name="courseName"
               onChange={handleChange}
+              className="form-control"
             />
             Date of Study:{" "}
             <input
@@ -132,6 +143,7 @@ export default function InfoForm() {
               value={person.studyDateFrom}
               name="studyDateFrom"
               onChange={handleChange}
+              className="form-control"
             />{" "}
             To{" "}
             <input
@@ -139,6 +151,7 @@ export default function InfoForm() {
               value={person.studyDateTo}
               name="studyDateTo"
               onChange={handleChange}
+              className="form-control"
             />
           </form>
           {/* Hides preview when edit button is clicked */}
@@ -163,6 +176,7 @@ export default function InfoForm() {
               value={person.companyName}
               name="companyName"
               onChange={handleChange}
+              className="form-control"
             />
             Position Title:{" "}
             <input
@@ -170,6 +184,7 @@ export default function InfoForm() {
               value={person.positionTitle}
               name="positionTitle"
               onChange={handleChange}
+              className="form-control"
             />
             Main Responsibility:{" "}
             <input
@@ -177,6 +192,7 @@ export default function InfoForm() {
               value={person.mainResponsibility}
               name="mainResponsibility"
               onChange={handleChange}
+              className="form-control"
             />
             Work Duration:{" "}
             <input
@@ -184,6 +200,7 @@ export default function InfoForm() {
               value={person.workDurationFrom}
               name="workDurationFrom"
               onChange={handleChange}
+              className="form-control"
             />{" "}
             to{" "}
             <input
@@ -191,6 +208,7 @@ export default function InfoForm() {
               value={person.workDurationTo}
               name="workDurationTo"
               onChange={handleChange}
+              className="form-control"
             />
           </form>
           <button

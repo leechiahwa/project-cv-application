@@ -16,8 +16,13 @@ body {
     color: #555;
 }
 
+button.btn {
+    margin: 5px;
+}
+
 h2.header {
     padding: 0 2em;
+    text-align: center;
 }
 
 div.preview {
