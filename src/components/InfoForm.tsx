@@ -35,7 +35,7 @@ export default function InfoForm() {
     setShowPreview(true);
   }
 
-  let previewOnSubmit = <h3 className="card">Resume in progress...</h3>;
+  let previewOnSubmit = <h3 id="preview" className="card">Resume in progress...</h3>;
 
   // Show the preview when submit button is clicked
   if (showPreview) {
@@ -65,144 +65,146 @@ export default function InfoForm() {
   // TODO: Only enable the submit button when all fields are filled
 
   return (
-    <div className="d-flex" id="form">
-      <div className="card">
-        <h2 className="header">Personal Info</h2>
-        <form className="d-flex flex-column">
-          Name:{" "}
-          <input
-            type="text"
-            value={person.name}
-            name="name"
-            onChange={handleChange}
-          />
-          Email:{" "}
-          <input
-            type="email"
-            value={person.email}
-            name="email"
-            onChange={handleChange}
-          />
-          Age:{" "}
-          <input
-            type="number"
-            value={person.age}
-            name="age"
-            onChange={handleChange}
-          />
-          Phone:{" "}
-          <input
-            type="tel"
-            value={person.phone}
-            name="phone"
-            onChange={handleChange}
-          />
-        </form>
-        <button
-          className="btn btn-secondary"
-          onClick={() => setShowPreview(false)}
-        >
-          Edit
-        </button>
-        <button className="btn btn-primary" onClick={onSubmit}>
-          Submit
-        </button>
+    <div className="d-flex">
+      <div className="d-flex flex-column" id="form">
+        <div className="card">
+          <h2 className="header">Personal Info</h2>
+          <form className="d-flex flex-column">
+            Name:{" "}
+            <input
+              type="text"
+              value={person.name}
+              name="name"
+              onChange={handleChange}
+            />
+            Email:{" "}
+            <input
+              type="email"
+              value={person.email}
+              name="email"
+              onChange={handleChange}
+            />
+            Age:{" "}
+            <input
+              type="number"
+              value={person.age}
+              name="age"
+              onChange={handleChange}
+            />
+            Phone:{" "}
+            <input
+              type="tel"
+              value={person.phone}
+              name="phone"
+              onChange={handleChange}
+            />
+          </form>
+          <button
+            className="btn btn-secondary"
+            onClick={() => setShowPreview(false)}
+          >
+            Edit
+          </button>
+          <button className="btn btn-primary" onClick={onSubmit}>
+            Submit
+          </button>
+        </div>
+        <div className="card">
+          <h2 className="header">Education Form</h2>
+          <form className="d-flex flex-column">
+            School Name:{" "}
+            <input
+              type="text"
+              value={person.schoolName}
+              name="schoolName"
+              onChange={handleChange}
+            />
+            Course Name:{" "}
+            <input
+              type="text"
+              value={person.courseName}
+              name="courseName"
+              onChange={handleChange}
+            />
+            Date of Study:{" "}
+            <input
+              type="date"
+              value={person.studyDateFrom}
+              name="studyDateFrom"
+              onChange={handleChange}
+            />{" "}
+            To{" "}
+            <input
+              type="date"
+              value={person.studyDateTo}
+              name="studyDateTo"
+              onChange={handleChange}
+            />
+          </form>
+          {/* Hides preview when edit button is clicked */}
+          <button
+            className="btn btn-secondary"
+            onClick={() => setShowPreview(false)}
+          >
+            Edit
+          </button>
+          {/* Shows preview when submit button is clicked */}
+          <button className="btn btn-primary" onClick={onSubmit}>
+            {" "}
+            Submit
+          </button>
+        </div>
+        <div className="card">
+          <h2 className="header">Work Info</h2>
+          <form className="d-flex flex-column">
+            Company Name:{" "}
+            <input
+              type="text"
+              value={person.companyName}
+              name="companyName"
+              onChange={handleChange}
+            />
+            Position Title:{" "}
+            <input
+              type="text"
+              value={person.positionTitle}
+              name="positionTitle"
+              onChange={handleChange}
+            />
+            Main Responsibility:{" "}
+            <input
+              type="text"
+              value={person.mainResponsibility}
+              name="mainResponsibility"
+              onChange={handleChange}
+            />
+            Work Duration:{" "}
+            <input
+              type="date"
+              value={person.workDurationFrom}
+              name="workDurationFrom"
+              onChange={handleChange}
+            />{" "}
+            to{" "}
+            <input
+              type="date"
+              value={person.workDurationTo}
+              name="workDurationTo"
+              onChange={handleChange}
+            />
+          </form>
+          <button
+            className="btn btn-secondary"
+            onClick={() => setShowPreview(false)}
+          >
+            Edit
+          </button>
+          <button className="btn btn-primary" onClick={onSubmit}>
+            Submit
+          </button>
+        </div>
       </div>
-      <div className="card">
-        <h2 className="header">Education Form</h2>
-        <form className="d-flex flex-column">
-          School Name:{" "}
-          <input
-            type="text"
-            value={person.schoolName}
-            name="schoolName"
-            onChange={handleChange}
-          />
-          Course Name:{" "}
-          <input
-            type="text"
-            value={person.courseName}
-            name="courseName"
-            onChange={handleChange}
-          />
-          Date of Study:{" "}
-          <input
-            type="date"
-            value={person.studyDateFrom}
-            name="studyDateFrom"
-            onChange={handleChange}
-          />{" "}
-          To{" "}
-          <input
-            type="date"
-            value={person.studyDateTo}
-            name="studyDateTo"
-            onChange={handleChange}
-          />
-        </form>
-        {/* Hides preview when edit button is clicked */}
-        <button
-          className="btn btn-secondary"
-          onClick={() => setShowPreview(false)}
-        >
-          Edit
-        </button>
-        {/* Shows preview when submit button is clicked */}
-        <button className="btn btn-primary" onClick={onSubmit}>
-          {" "}
-          Submit
-        </button>
-      </div>
-      <div className="card">
-        <h2 className="header">Work Info</h2>
-        <form className="d-flex flex-column">
-          Company Name:{" "}
-          <input
-            type="text"
-            value={person.companyName}
-            name="companyName"
-            onChange={handleChange}
-          />
-          Position Title:{" "}
-          <input
-            type="text"
-            value={person.positionTitle}
-            name="positionTitle"
-            onChange={handleChange}
-          />
-          Main Responsibility:{" "}
-          <input
-            type="text"
-            value={person.mainResponsibility}
-            name="mainResponsibility"
-            onChange={handleChange}
-          />
-          Work Duration:{" "}
-          <input
-            type="date"
-            value={person.workDurationFrom}
-            name="workDurationFrom"
-            onChange={handleChange}
-          />{" "}
-          to{" "}
-          <input
-            type="date"
-            value={person.workDurationTo}
-            name="workDurationTo"
-            onChange={handleChange}
-          />
-        </form>
-        <button
-          className="btn btn-secondary"
-          onClick={() => setShowPreview(false)}
-        >
-          Edit
-        </button>
-        <button className="btn btn-primary" onClick={onSubmit}>
-          Submit
-        </button>
-      </div>
-      {previewOnSubmit}
+      <div id="preview">{previewOnSubmit}</div>
     </div>
   );
 }
