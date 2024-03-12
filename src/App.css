@@ -43,6 +43,37 @@ div.card {
     padding: 2em;
 }
 
+/* Forms */
+#personal-info {
+    display: none;
+}
+
+#personal-info.active {
+    display: block;
+    display: flex;
+    flex-direction: column;
+}
+
+#education-form {
+    display: none;
+}
+
+#education-form.active {
+    display: block;
+    display: flex;
+    flex-direction: column;
+}
+
+#work-info {
+    display: none;
+}
+
+#work-info.active {
+    display: block;
+    display: flex;
+    flex-direction: column;
+}
+
 #preview{
     padding: 0 2em;
     

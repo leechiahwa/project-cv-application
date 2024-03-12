@@ -29,6 +29,7 @@ export default function InfoForm() {
   }
 
   const [showPreview, setShowPreview] = useState(false);
+  const [isActive, setActive] = useState(false);
 
   // TODO: should be a better way to do this part
   function onSubmit() {
@@ -68,13 +69,23 @@ export default function InfoForm() {
   // TODO: Design the preview to look better
   // TODO: Only enable the submit button when all fields are filled
   // TODO: Toggle to show/hide the form
+  // TODO: Only show preview text after form is filled
+  // TOFIX: Fix the states to show and hide forms accordingly
 
   return (
     <div className="d-flex">
       <div className="d-flex flex-column" id="form">
         <div className="card">
           <h2 className="header">Personal Info</h2>
-          <form className="d-flex flex-column">
+          <button
+            onClick={() => setActive(!isActive)}
+            className="btn btn-primary"
+            type="submit"
+          >
+            {isActive ? "Hide" : "Show"}
+          </button>
+          {/* TODO: Add an arrow button that sets active on click */}
+          <form id="personal-info" className={isActive ? "active" : undefined}>
             Name:{""}
             <input
               type="text"
@@ -120,7 +131,15 @@ export default function InfoForm() {
         </div>
         <div className="card">
           <h2 className="header">Education Form</h2>
-          <form className="d-flex flex-column">
+          {/* TODO: Add an arrow button that sets active on click */}
+          <button
+            onClick={() => setActive(!isActive)}
+            className="btn btn-primary"
+            type="submit"
+          >
+            {isActive ? "Hide" : "Show"}
+          </button>
+          <form id="education-form" className={isActive ? "active" : undefined}>
             School Name:{" "}
             <input
               type="text"
@@ -169,7 +188,15 @@ export default function InfoForm() {
         </div>
         <div className="card">
           <h2 className="header">Work Info</h2>
-          <form className="d-flex flex-column">
+          {/* TODO: Add an arrow button that sets active on click */}
+          <button
+            onClick={() => setActive(!isActive)}
+            className="btn btn-primary"
+            type="submit"
+          >
+            {isActive ? "Hide" : "Show"}
+          </button>
+          <form id="work-info" className={isActive ? "active" : undefined}>
             Company Name:{" "}
             <input
               type="text"
