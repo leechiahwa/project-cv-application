@@ -28,8 +28,12 @@ export default function InfoForm() {
     });
   }
 
+  // State for showing and hiding the preview
   const [showPreview, setShowPreview] = useState(false);
-  const [isActive, setActive] = useState(false);
+  // States for showing and hiding forms
+  const [isPersonalInfoActive, setPersonalInfoActive] = useState(false);
+  const [isEducationActive, setEducationActive] = useState(false);
+  const [isWorkInfoActive, setWorkInfoActive] = useState(false);
 
   // TODO: should be a better way to do this part
   function onSubmit() {
@@ -70,22 +74,23 @@ export default function InfoForm() {
   // TODO: Only enable the submit button when all fields are filled
   // TODO: Toggle to show/hide the form
   // TODO: Only show preview text after form is filled
-  // TOFIX: Fix the states to show and hide forms accordingly
-
   return (
     <div className="d-flex">
       <div className="d-flex flex-column" id="form">
         <div className="card">
           <h2 className="header">Personal Info</h2>
           <button
-            onClick={() => setActive(!isActive)}
+            onClick={() => setPersonalInfoActive(!isPersonalInfoActive)}
             className="btn btn-primary"
             type="submit"
           >
-            {isActive ? "Hide" : "Show"}
+            {isPersonalInfoActive ? "Hide" : "Show"}
           </button>
           {/* TODO: Add an arrow button that sets active on click */}
-          <form id="personal-info" className={isActive ? "active" : undefined}>
+          <form
+            id="personal-info"
+            className={isPersonalInfoActive ? "active" : undefined}
+          >
             Name:{""}
             <input
               type="text"
@@ -133,13 +138,16 @@ export default function InfoForm() {
           <h2 className="header">Education Form</h2>
           {/* TODO: Add an arrow button that sets active on click */}
           <button
-            onClick={() => setActive(!isActive)}
+            onClick={() => setEducationActive(!isEducationActive)}
             className="btn btn-primary"
             type="submit"
           >
-            {isActive ? "Hide" : "Show"}
+            {isEducationActive ? "Hide" : "Show"}
           </button>
-          <form id="education-form" className={isActive ? "active" : undefined}>
+          <form
+            id="education-form"
+            className={isEducationActive ? "active" : undefined}
+          >
             School Name:{" "}
             <input
               type="text"
@@ -190,13 +198,16 @@ export default function InfoForm() {
           <h2 className="header">Work Info</h2>
           {/* TODO: Add an arrow button that sets active on click */}
           <button
-            onClick={() => setActive(!isActive)}
+            onClick={() => setWorkInfoActive(!isWorkInfoActive)}
             className="btn btn-primary"
             type="submit"
           >
-            {isActive ? "Hide" : "Show"}
+            {isWorkInfoActive ? "Hide" : "Show"}
           </button>
-          <form id="work-info" className={isActive ? "active" : undefined}>
+          <form
+            id="work-info"
+            className={isWorkInfoActive ? "active" : undefined}
+          >
             Company Name:{" "}
             <input
               type="text"
