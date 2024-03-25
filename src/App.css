@@ -33,8 +33,9 @@ p.preview {
     text-align: center;
 }
 
-h3.card {
-    text-align: center;
+.card {
+    display: flex; 
+    align-items: center;
 }
 
 div.card {
