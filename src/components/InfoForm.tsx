@@ -76,7 +76,7 @@ export default function InfoForm() {
   // TODO: Only show preview text after form is filled
   return (
     <div className="d-flex">
-      <div className="d-flex flex-column" id="form">
+      <div id="form">
         <div className="card">
           <svg
             xmlns="http://www.w3.org/2000/svg"
