@@ -50,7 +50,7 @@ export default function InfoForm() {
   if (showPreview) {
     previewOnSubmit = (
       <div className="d-flex flex-column card">
-        <p className="preview name">Hello, I am {person.name}!</p>
+        <p className="preview name">{person.name}</p>
         <p className="preview">{person.email}</p>
         <p className="preview">I am {person.age} years old.</p>
         <p className="preview">{person.phone}</p>
