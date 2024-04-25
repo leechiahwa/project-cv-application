@@ -1,10 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    /* margin-left: auto;
-    margin-right: auto; */
-    /* Colors */
-    /* background-image: linear-gradient(to right top, #c7b9db, #d4b2d8, #e2aad0, #f0a3c3, #fb9cb0); */
 }
 
 html, body { height: 100%; }
@@ -97,10 +93,9 @@ div.card {
 
 }
 
-.preview.name {
+.preview .name {
     text-align: center;
-    font-size: 2em;
-    font-weight: bold;
+    font-size: larger;
 
 }
 
