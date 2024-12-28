@@ -11,18 +11,29 @@ interface EducationInfo {
   studyDateFrom: string;
   studyDateTo: string;
 }
+
+interface WorkInfo {
+  companyName: string;
+  positionTitle: string;
+  mainResponsibility: string;
+  workDurationFrom: string;
+  workDurationTo: string;
+}
+
 interface PreviewProps {
   personal: PersonalInfo;
   education: EducationInfo;
+  work: WorkInfo;
 }
 
-function Preview({ personal, education }: PreviewProps) {
+function Preview({ personal, education, work }: PreviewProps) {
   return (
     <div>
       Resume Preview
       <p>{personal.name}</p>
       <p>{personal.phone}</p>
       <p>{education.schoolName}</p>
+      <p>{work.companyName}</p>
     </div>
   );
 }

@@ -16,6 +16,13 @@ interface EducationInfo {
   studyDateFrom: string;
   studyDateTo: string;
 }
+interface WorkInfo {
+  companyName: string;
+  positionTitle: string;
+  mainResponsibility: string;
+  workDurationFrom: string;
+  workDurationTo: string;
+}
 
 export default function InfoForm() {
   const [showPreview, setShowPreview] = useState(false);
@@ -23,6 +30,7 @@ export default function InfoForm() {
   const [educationInfo, setEducationInfo] = useState<EducationInfo | null>(
     null
   );
+  const [workInfo, setWorkInfo] = useState<WorkInfo | null>(null);
 
   const handlePersonalInfo = (data: PersonalInfo) => {
     console.log("Data from Personal Info: ", data);
@@ -36,6 +44,12 @@ export default function InfoForm() {
     setShowPreview(true);
   };
 
+  const handleWorkInfo = (data: WorkInfo) => {
+    console.log("Data from Work Info: ", data);
+    setWorkInfo(data);
+    setShowPreview(true);
+  };
+
   let previewOnSubmit = (
     <h3 id="preview" className="card">
       Resume in progress...
@@ -43,9 +57,13 @@ export default function InfoForm() {
   );
 
   // Show the preview when submit button is clicked
-  if (showPreview && personalInfo && educationInfo) {
+  if (showPreview && personalInfo && educationInfo && workInfo) {
     previewOnSubmit = (
-      <Preview personal={personalInfo} education={educationInfo} />
+      <Preview
+        personal={personalInfo}
+        education={educationInfo}
+        work={workInfo}
+      />
     );
   }
 
@@ -54,7 +72,7 @@ export default function InfoForm() {
       <div id="form">
         <PersonalInfo sendDataToPreview={handlePersonalInfo} />
         <EducationInfo sendDataToPreview={handleEducationInfo} />
-        <WorkInfo />
+        <WorkInfo sendDataToPreview={handleWorkInfo} />
       </div>
       <div className="preview">{previewOnSubmit}</div>
     </div>

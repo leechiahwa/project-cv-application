@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 
-function WorkInfo() {
+interface WorkInfoProps {
+  sendDataToPreview: (data: {
+    companyName: string;
+    positionTitle: string;
+    mainResponsibility: string;
+    workDurationFrom: string;
+    workDurationTo: string;
+  }) => void;
+}
+
+function WorkInfo({ sendDataToPreview }: WorkInfoProps) {
   const [work, setWork] = useState({
     companyName: "",
     positionTitle: "",
@@ -9,6 +19,9 @@ function WorkInfo() {
     workDurationTo: "",
   });
   const [isWorkInfoActive, setWorkInfoActive] = useState(false);
+  const handleSubmit = () => {
+    sendDataToPreview(work);
+  };
 
   const handleCompanyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setWork({ ...work, companyName: e.target.value });
@@ -30,10 +43,6 @@ function WorkInfo() {
 
   const handleWorkToChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setWork({ ...work, workDurationTo: e.target.value });
-  };
-
-  const onSubmit = () => {
-    console.log(work);
   };
 
   return (
@@ -102,7 +111,7 @@ function WorkInfo() {
           className="form-control"
         />
       </form>
-      <button className="btn btn-primary" onClick={onSubmit}>
+      <button className="btn btn-primary" onClick={handleSubmit}>
         Submit
       </button>
     </div>
