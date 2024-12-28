@@ -101,3 +101,32 @@ div.card {
 .preview .email {
   text-align: center;
 }
+
+.preview-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.preview-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h3 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.section p {
+  margin: 5px 0;
+}
+
+.section p strong {
+  display: inline-block;
+  width: 150px;
+}
