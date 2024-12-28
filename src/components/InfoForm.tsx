@@ -4,11 +4,22 @@ import EducationInfo from "./EducationInfo";
 import WorkInfo from "./WorkInfo";
 import Preview from "./Preview";
 
+interface PersonalInfo {
+  name: string;
+  email: string;
+  age: number;
+  phone: string;
+}
+
 export default function InfoForm() {
   const [showPreview, setShowPreview] = useState(false);
-  function onSubmit() {
+  const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null);
+
+  const handlePersonalInfo = (data: PersonalInfo) => {
+    console.log("Data from Personal Info: ", data);
+    setPersonalInfo(data);
     setShowPreview(true);
-  }
+  };
 
   let previewOnSubmit = (
     <h3 id="preview" className="card">
@@ -17,18 +28,18 @@ export default function InfoForm() {
   );
 
   // Show the preview when submit button is clicked
-  if (showPreview) {
-    previewOnSubmit = <Preview />;
+  if (showPreview && personalInfo) {
+    previewOnSubmit = <Preview personal={personalInfo} />;
   }
 
   return (
-    <div className="d-flex">
+    <div className="d-flex flex-wrap justify-content-center">
       <div id="form">
-        <PersonalInfo />
+        <PersonalInfo sendDataToPreview={handlePersonalInfo} />
         <EducationInfo />
         <WorkInfo />
       </div>
-      <div id="preview">{previewOnSubmit}</div>
+      <div className="preview">{previewOnSubmit}</div>
     </div>
   );
 }

@@ -1,9 +1,18 @@
-import React from 'react'
-
-function Preview() {
-  return (
-    <div>Resume Preview</div>
-  )
+interface PersonalInfo {
+  name: string;
+  email: string;
+  age: number;
+  phone: string;
 }
 
-export default Preview
+function Preview({ personal }: { personal: PersonalInfo }) {
+  return (
+    <div>
+      Resume Preview
+      <p>{personal.name}</p>
+      <p>{personal.phone}</p>
+    </div>
+  );
+}
+
+export default Preview;

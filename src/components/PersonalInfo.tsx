@@ -1,12 +1,26 @@
 import React, { useState } from "react";
 
-function PersonalInfo() {
+interface PersonalInfoProps {
+  sendDataToPreview: (data: {
+    name: string;
+    email: string;
+    age: number;
+    phone: string;
+  }) => void;
+}
+
+function PersonalInfo({ sendDataToPreview }: PersonalInfoProps) {
   const [personal, setPersonal] = useState({
     name: "",
     email: "",
-    age: "",
+    age: 0,
     phone: "",
   });
+
+  const handleSubmit = () => {
+    sendDataToPreview(personal);
+  };
+
   const [isPersonalInfoActive, setPersonalInfoActive] = useState(false);
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,15 +32,11 @@ function PersonalInfo() {
   };
 
   const handleAgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPersonal({ ...personal, age: e.target.value });
+    setPersonal({ ...personal, age: Number(e.target.value) });
   };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPersonal({ ...personal, phone: e.target.value });
-  };
-
-  const onSubmit = () => {
-    console.log(personal);
   };
 
   return (
@@ -91,7 +101,7 @@ function PersonalInfo() {
           className="form-control"
         />
       </form>
-      <button className="btn btn-primary" onClick={onSubmit}>
+      <button className="btn btn-primary" onClick={handleSubmit}>
         Submit
       </button>
     </div>
