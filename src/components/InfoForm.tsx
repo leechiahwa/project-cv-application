@@ -10,14 +10,29 @@ interface PersonalInfo {
   age: number;
   phone: string;
 }
+interface EducationInfo {
+  schoolName: string;
+  courseName: string;
+  studyDateFrom: string;
+  studyDateTo: string;
+}
 
 export default function InfoForm() {
   const [showPreview, setShowPreview] = useState(false);
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null);
+  const [educationInfo, setEducationInfo] = useState<EducationInfo | null>(
+    null
+  );
 
   const handlePersonalInfo = (data: PersonalInfo) => {
     console.log("Data from Personal Info: ", data);
     setPersonalInfo(data);
+    setShowPreview(true);
+  };
+
+  const handleEducationInfo = (data: EducationInfo) => {
+    console.log("Data from Education Info: ", data);
+    setEducationInfo(data);
     setShowPreview(true);
   };
 
@@ -28,15 +43,17 @@ export default function InfoForm() {
   );
 
   // Show the preview when submit button is clicked
-  if (showPreview && personalInfo) {
-    previewOnSubmit = <Preview personal={personalInfo} />;
+  if (showPreview && personalInfo && educationInfo) {
+    previewOnSubmit = (
+      <Preview personal={personalInfo} education={educationInfo} />
+    );
   }
 
   return (
     <div className="d-flex flex-wrap justify-content-center">
       <div id="form">
         <PersonalInfo sendDataToPreview={handlePersonalInfo} />
-        <EducationInfo />
+        <EducationInfo sendDataToPreview={handleEducationInfo} />
         <WorkInfo />
       </div>
       <div className="preview">{previewOnSubmit}</div>

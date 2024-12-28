@@ -17,6 +17,7 @@ function PersonalInfo({ sendDataToPreview }: PersonalInfoProps) {
     phone: "",
   });
 
+  // Send data to Preview component
   const handleSubmit = () => {
     sendDataToPreview(personal);
   };

@@ -1,12 +1,27 @@
 import React, { useState } from "react";
 
-function EducationInfo() {
+interface EducationInfoProps {
+  sendDataToPreview: (data: {
+    schoolName: string;
+    courseName: string;
+    studyDateFrom: string;
+    studyDateTo: string;
+  }) => void;
+}
+
+function EducationInfo({ sendDataToPreview }: EducationInfoProps) {
   const [education, setEducation] = useState({
     schoolName: "",
     courseName: "",
     studyDateFrom: "",
     studyDateTo: "",
   });
+
+  // Send data to Preview component
+  const handleSubmit = () => {
+    sendDataToPreview(education);
+  };
+
   const [isEducationActive, setEducationActive] = useState(false);
 
   const handleSchoolChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,9 +40,6 @@ function EducationInfo() {
     setEducation({ ...education, studyDateTo: e.target.value });
   };
 
-  const onSubmit = () => {
-    console.log(education);
-  };
   return (
     <div className="card">
       <svg
@@ -87,8 +99,7 @@ function EducationInfo() {
           className="form-control"
         />
       </form>
-      <button className="btn btn-primary" onClick={onSubmit}>
-        {" "}
+      <button className="btn btn-primary" onClick={handleSubmit}>
         Submit
       </button>
     </div>
