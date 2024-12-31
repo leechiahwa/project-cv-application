@@ -24,13 +24,36 @@ interface WorkInfo {
   workDurationTo: string;
 }
 
+// Add default values for each interface
+const defaultPersonalInfo: PersonalInfo = {
+  name: "",
+  email: "",
+  age: 0,
+  phone: "",
+};
+
+const defaultEducationInfo: EducationInfo = {
+  schoolName: "",
+  courseName: "",
+  studyDateFrom: "",
+  studyDateTo: "",
+};
+
+const defaultWorkInfo: WorkInfo = {
+  companyName: "",
+  positionTitle: "",
+  mainResponsibility: "",
+  workDurationFrom: "",
+  workDurationTo: "",
+};
+
 export default function InfoForm() {
   const [showPreview, setShowPreview] = useState(false);
-  const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null);
-  const [educationInfo, setEducationInfo] = useState<EducationInfo | null>(
-    null
-  );
-  const [workInfo, setWorkInfo] = useState<WorkInfo | null>(null);
+  const [personalInfo, setPersonalInfo] =
+    useState<PersonalInfo>(defaultPersonalInfo);
+  const [educationInfo, setEducationInfo] =
+    useState<EducationInfo>(defaultEducationInfo);
+  const [workInfo, setWorkInfo] = useState<WorkInfo>(defaultWorkInfo);
 
   const handlePersonalInfo = (data: PersonalInfo) => {
     console.log("Data from Personal Info: ", data);
@@ -57,7 +80,7 @@ export default function InfoForm() {
   );
 
   // Show the preview when submit button is clicked
-  if (showPreview && personalInfo && educationInfo && workInfo) {
+  if (showPreview) {
     previewOnSubmit = (
       <Preview
         personal={personalInfo}
