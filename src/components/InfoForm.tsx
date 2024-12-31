@@ -73,11 +73,13 @@ export default function InfoForm() {
     setShowPreview(true);
   };
 
-  let previewOnSubmit = (
-    <h3 id="preview" className="card">
-      Resume in progress...
-    </h3>
-  );
+  const handleReset = () => {
+    setPersonalInfo(defaultPersonalInfo);
+    setEducationInfo(defaultEducationInfo);
+    setWorkInfo(defaultWorkInfo);
+  };
+
+  let previewOnSubmit = <h3 className="preview">Resume in progress...</h3>;
 
   // Show the preview when submit button is clicked
   if (showPreview) {
@@ -96,6 +98,11 @@ export default function InfoForm() {
         <PersonalInfo sendDataToPreview={handlePersonalInfo} />
         <EducationInfo sendDataToPreview={handleEducationInfo} />
         <WorkInfo sendDataToPreview={handleWorkInfo} />
+        <div className="d-flex justify-content-center">
+          <button className="btn btn-primary" onClick={handleReset}>
+            Reset
+          </button>
+        </div>
       </div>
       <div className="preview">{previewOnSubmit}</div>
     </div>

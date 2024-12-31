@@ -46,18 +46,25 @@ function Preview({ personal, education, work }: PreviewProps) {
         <p>Phone: {personal.phone || "012-3456789"}</p>
         <p>Age: {personal.age || "25"} years old</p>
       </section>
+      <div className="section-divider"></div>
 
       {/* Education Section */}
       <section className="education-section">
         <h2>Education</h2>
         <div className="education-item">
-          <h3>{education.courseName || "Bachelor of Science in Computer Science"}</h3>
-          <p>{education.schoolName || "University of California, Los Angeles"}</p>
+          <h3>
+            {education.courseName || "Bachelor of Science in Computer Science"}
+          </h3>
           <p>
-            {education.studyDateFrom || "2018"} - {education.studyDateTo || "2022"}
+            {education.schoolName || "University of California, Los Angeles"}
+          </p>
+          <p>
+            {education.studyDateFrom || "2018"} -{" "}
+            {education.studyDateTo || "2022"}
           </p>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* Work Section */}
       <section className="work-section">
@@ -68,7 +75,11 @@ function Preview({ personal, education, work }: PreviewProps) {
           <p>
             {work.workDurationFrom || "2022"} - {work.workDurationTo || "2024"}
           </p>
-          <p>Main Responsibility: {work.mainResponsibility || "Developing and maintaining software applications"}</p>
+          <p>
+            Main Responsibility:{" "}
+            {work.mainResponsibility ||
+              "Developing and maintaining software applications"}
+          </p>
         </div>
       </section>
     </div>
