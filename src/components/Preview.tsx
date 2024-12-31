@@ -1,3 +1,5 @@
+import WorkInfo from "./WorkInfo";
+
 interface PersonalInfo {
   name: string;
   email: string;
@@ -29,50 +31,47 @@ interface PreviewProps {
 function Preview({ personal, education, work }: PreviewProps) {
   return (
     <div className="preview-container">
-    <h2 className="preview-header">Resume Preview</h2>
-    <div className="section">
-      <h3>Personal Information</h3>
-      <p>
-        <strong>Name:</strong> {personal.name}
-      </p>
-      <p>
-        <strong>Email:</strong> {personal.email}
-      </p>
-      <p>
-        <strong>Age:</strong> {personal.age}
-      </p>
-      <p>
-        <strong>Phone:</strong> {personal.phone}
-      </p>
+      {/* Header Section */}
+      <header className="preview-header">
+        <h1>{personal.name || "Melvin Lee"}</h1>
+        <p className="position-title">
+          {work.positionTitle || "Software Developer"}
+        </p>
+      </header>
+
+      {/* Personal Section */}
+      <section className="personal-section">
+        <h2>Personal Information</h2>
+        <p>Email: {personal.email || "leechiahwa99@hotmail.com"}</p>
+        <p>Phone: {personal.phone || "012-3456789"}</p>
+        <p>Age: {personal.age || "25"} years old</p>
+      </section>
+
+      {/* Education Section */}
+      <section className="education-section">
+        <h2>Education</h2>
+        <div className="education-item">
+          <h3>{education.courseName || "Bachelor of Science in Computer Science"}</h3>
+          <p>{education.schoolName || "University of California, Los Angeles"}</p>
+          <p>
+            {education.studyDateFrom || "2018"} - {education.studyDateTo || "2022"}
+          </p>
+        </div>
+      </section>
+
+      {/* Work Section */}
+      <section className="work-section">
+        <h2>Work Experience</h2>
+        <div className="work-item">
+          <h3>{work.positionTitle || "Software Developer"}</h3>
+          <p>{work.companyName || "Google"}</p>
+          <p>
+            {work.workDurationFrom || "2022"} - {work.workDurationTo || "2024"}
+          </p>
+          <p>Main Responsibility: {work.mainResponsibility || "Developing and maintaining software applications"}</p>
+        </div>
+      </section>
     </div>
-    <div className="section">
-      <h3>Education</h3>
-      <p>
-        <strong>School Name:</strong> {education.schoolName}
-      </p>
-      <p>
-        <strong>Course Name:</strong> {education.courseName}
-      </p>
-      <p>
-        <strong>Study Period:</strong> {education.studyDateFrom} - {education.studyDateTo}
-      </p>
-    </div>
-    <div className="section">
-      <h3>Work Experience</h3>
-      <p>
-        <strong>Company Name:</strong> {work.companyName}
-      </p>
-      <p>
-        <strong>Position Title:</strong> {work.positionTitle}
-      </p>
-      <p>
-        <strong>Main Responsibility:</strong> {work.mainResponsibility}
-      </p>
-      <p>
-        <strong>Work Duration:</strong> {work.workDurationFrom} - {work.workDurationTo}
-      </p>
-    </div>
-  </div>
   );
 }
 
