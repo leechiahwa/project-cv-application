@@ -1,3 +1,6 @@
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+
 import WorkInfo from "./WorkInfo";
 
 interface PersonalInfo {
@@ -31,11 +34,32 @@ interface PreviewProps {
 function Preview({ personal, education, work }: PreviewProps) {
   const handleDownloadPDF = () => {
     console.log("Downloading pdf");
+    const element = document.getElementById("content-to-pdf");
+    if (element) {
+      html2canvas(element).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png"); // Convert canvas to image
+        const pdf = new jsPDF({
+          orientation: "portrait",
+          unit: "mm",
+          format: "letter",
+        });
+        const pageWidth = pdf.internal.pageSize.getWidth();
+
+        // Adjust image dimensions to fit PDF page
+        const imgWidth = pageWidth;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+        pdf.save("resume.pdf"); // Save the PDF
+      });
+    } else {
+      console.error("Element not found");
+    }
   };
 
   return (
     <div style={{ position: "relative" }}>
-      <div className="preview-container">
+      <div id="content-to-pdf" className="preview-container">
         {/* Header Section */}
         <header className="preview-header">
           <h1>{personal.name || "Melvin Lee"}</h1>
